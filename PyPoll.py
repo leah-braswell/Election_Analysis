@@ -18,6 +18,18 @@ candidate_options = []
 #Create dictionary for candidate names and votes.
 candidate_votes = {}
 
+#WINNING CANDIDATE AND WINNING COUNT TRACKER
+#Declare variable to hold empty string value for winning candidate.
+winning_candidate = ""
+
+#Assign a variable for winning count and set to zero.
+winning_count = 0
+
+#Assign a variable for winning_percentage and set to zero.
+winning_percentage = 0
+
+
+
 #OPEN the election results and read the file.
 with open(file_to_load) as election_data:
 
@@ -57,23 +69,24 @@ with open(file_to_load) as election_data:
         vote_percentage = float(votes) / float(total_votes) * 100
 
         #print candidate_name and percentage of votes as f-string
-        print(f"{candidate_name}: received {vote_percentage: .1f}% of the vote.")
+        print(f"{candidate_name}:  {vote_percentage: .1f}% ({votes:,})\n")
         
+        #Determine if the vote count is greater than winning_count
+        if (votes > winning_count) and (vote_percentage > winning_percentage):
+            #if true set winning_count = votes, winning_percentage = vote_percentage, winning_candidate = candidate_name
+            winning_count = votes
+            winning_percentage = vote_percentage
+            winning_candidate = candidate_name
 
-
-
-
+    #Print winning candidate summary
+    winning_candidate_summary = (
+        f'-------------------------\n'
+        f'Winner: {winning_candidate}\n'
+        f'Winning Vote Count: {winning_count:,}\n'
+        f'Winning Percentage: {winning_percentage:.1f}%\n'
+        f'-------------------------')
+    print(winning_candidate_summary)
            
-
-#print out total_votes
-print(total_votes)
-
-#print candidate_options
-print(candidate_options)
-
-#print candidate_votes
-print(candidate_votes)
-
 
 #Close the file.
 election_data.close()

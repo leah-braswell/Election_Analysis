@@ -78,3 +78,14 @@ print(message_to_candidate)
 for counites_dict in voting_data:
     for county, voters in counties_dict:
         print(f'{'county'} has {'voters':,} registered voters.')
+
+
+
+#print out total_votes
+print(total_votes)
+
+#print candidate_options
+print(candidate_options)
+
+#print candidate_votes
+print(candidate_votes)
