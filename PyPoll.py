@@ -15,6 +15,9 @@ total_votes = 0
 #Declare new list for candidate_options.
 candidate_options = []
 
+#Create dictionary for candidate names and votes.
+candidate_votes = {}
+
 #OPEN the election results and read the file.
 with open(file_to_load) as election_data:
 
@@ -38,11 +41,23 @@ with open(file_to_load) as election_data:
             #Add candidate_name to candidate_options list.
             candidate_options.append(candidate_name)
 
+            #Begin tracking votes by adding candidate_name as a key in candidate_votes.
+            candidate_votes[candidate_name] = 0
+
+        #increase value for candidate_votes by taking it OUT of the if statement
+        candidate_votes[candidate_name] +=1
+
+           
+
 #print out total_votes
 print(total_votes)
 
 #print candidate_options
 print(candidate_options)
+
+#print candidate_votes
+print(candidate_votes)
+
 
 #Close the file.
 election_data.close()
