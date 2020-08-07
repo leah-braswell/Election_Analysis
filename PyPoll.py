@@ -47,6 +47,22 @@ with open(file_to_load) as election_data:
         #increase value for candidate_votes by taking it OUT of the if statement
         candidate_votes[candidate_name] +=1
 
+    #loop through dictionary to get candidate's name
+    for candidate_name in candidate_votes:
+
+        #get values for each candidate_name from candidate_votes{}
+        votes = candidate_votes[candidate_name]
+
+        #calculate percentage and return as a floating decimal
+        vote_percentage = float(votes) / float(total_votes) * 100
+
+        #print candidate_name and percentage of votes as f-string
+        print(f"{candidate_name}: received {vote_percentage: .1f}% of the vote.")
+        
+
+
+
+
            
 
 #print out total_votes
