@@ -1,5 +1,5 @@
 # Election_Analysis
- A Python project that uses for loops and conditional statements with membership and logical operators to provide analysis of an election audit.
+
 
 ## Project Overview
 A Colorado Board of Elections employee has asked me to perform the following tasks in order to certify a Congressional Election.
